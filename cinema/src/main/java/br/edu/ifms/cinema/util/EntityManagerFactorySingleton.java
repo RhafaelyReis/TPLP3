@@ -11,16 +11,21 @@ import javax.persistence.Persistence;
  *
  * @author rhafa
  */
-public class EMF {
+public class EntityManagerFactorySingleton {
     private static EntityManagerFactory emf;
+    private static final String PERSISTENCE_UNIT_NAME = "UP";
 
-    private EMF() {
+    private EntityManagerFactorySingleton() {
         // construtor privado → impede instanciamento externo
     }
 
-    public static EntityManagerFactory get() {
+    public static EntityManagerFactory getEMF() {
         if (emf == null) {
-            emf = Persistence.createEntityManagerFactory("UP");
+            synchronized(EntityManagerFactory.class) {
+                if (emf == null) {
+                    emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+                }
+            }
         }
         return emf;
     }
