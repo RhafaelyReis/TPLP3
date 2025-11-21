@@ -31,9 +31,9 @@ public class Ingresso implements Serializable {
     private String codigo;
     private Double valor;
 
-    @ManyToOne
-    @JoinColumn(name = "sessao_id")
-    private Sessao sessao;
+//    @ManyToOne
+//    @JoinColumn(name = "sessao_id")
+//    private Sessao sessao;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
@@ -67,32 +67,32 @@ public class Ingresso implements Serializable {
         this.valor = valor;
     }
 
-    public Sessao getSessao() {
-        return sessao;
+//    public Sessao getSessao() {
+//        return sessao;
+//    }
+//
+//    public void setSessao(Sessao sessao) {
+//        this.sessao = sessao;
     }
 
-    public void setSessao(Sessao sessao) {
-        this.sessao = sessao;
-    }
+//    public Cliente getCliente() {
+//        return cliente;
+//    }
+//
+//    public void setCliente(Cliente cliente) {
+//        this.cliente = cliente;
+//    }
+//
+//    public Assento getAssento() {
+//        return assento;
+//    }
+//
+//    public void setAssento(Assento assento) {
+//        this.assento = assento;
+//    }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Assento getAssento() {
-        return assento;
-    }
-
-    public void setAssento(Assento assento) {
-        this.assento = assento;
-    }
-
-    @Override
-    public String toString() {
-        return "Ingresso[ id=" + id + ", codigo=" + codigo + " ]";
-    }
-}
+//    @Override
+//    public String toString() {
+//        return "Ingresso[ id=" + id + ", codigo=" + codigo + " ]";
+//    }
+//}

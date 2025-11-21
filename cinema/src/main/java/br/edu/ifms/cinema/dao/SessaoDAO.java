@@ -19,15 +19,17 @@ public class SessaoDAO implements GenericDAO<Sessao>{
     private EntityManager em;
 
     @Override
-    public void add(Sessao entity) {
+    public boolean add(Sessao entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             em.getTransaction().begin();
             em.persist(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
@@ -52,7 +54,7 @@ public class SessaoDAO implements GenericDAO<Sessao>{
     }
 
     @Override
-    public void remove(Sessao entity) {
+    public boolean remove(Sessao entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             if(em.find(Sessao.class, entity.getId()) == null)
@@ -60,9 +62,11 @@ public class SessaoDAO implements GenericDAO<Sessao>{
             em.getTransaction().begin();
             em.remove(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }

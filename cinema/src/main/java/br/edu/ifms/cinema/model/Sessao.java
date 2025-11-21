@@ -36,12 +36,12 @@ public class Sessao implements Serializable {
     @JoinColumn(name = "filme_id")
     private Filme filme;
 
-    @ManyToOne
-    @JoinColumn(name = "sala_id")
-    private Sala sala;
-
-    @OneToMany(mappedBy = "sessao")
-    private List<Ingresso> ingressos;
+//    @ManyToOne
+//    @JoinColumn(name = "sala_id")
+//    private Sala sala;
+//
+//    @OneToMany(mappedBy = "sessao")
+//    private List<Ingresso> ingressos;
 
     public Long getId() {
         return id;
@@ -67,21 +67,21 @@ public class Sessao implements Serializable {
         this.filme = filme;
     }
 
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
-
-    public List<Ingresso> getIngressos() {
-        return ingressos;
-    }
-
-    public void setIngressos(List<Ingresso> ingressos) {
-        this.ingressos = ingressos;
-    }
+//    public Sala getSala() {
+//        return sala;
+//    }
+//
+//    public void setSala(Sala sala) {
+//        this.sala = sala;
+//    }
+//
+//    public List<Ingresso> getIngressos() {
+//        return ingressos;
+//    }
+//
+//    public void setIngressos(List<Ingresso> ingressos) {
+//        this.ingressos = ingressos;
+//    }
 
     @Override
     public String toString() {

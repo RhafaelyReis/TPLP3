@@ -19,15 +19,17 @@ public class AssentoDAO implements GenericDAO<Assento>{
     private EntityManager em;
 
     @Override
-    public void add(Assento entity) {
+    public boolean add(Assento entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             em.getTransaction().begin();
             em.persist(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
@@ -52,7 +54,7 @@ public class AssentoDAO implements GenericDAO<Assento>{
     }
 
     @Override
-    public void remove(Assento entity) {
+    public boolean remove(Assento entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             if(em.find(Assento.class, entity.getId()) == null)
@@ -60,9 +62,11 @@ public class AssentoDAO implements GenericDAO<Assento>{
             em.getTransaction().begin();
             em.remove(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
