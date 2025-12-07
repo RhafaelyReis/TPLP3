@@ -45,9 +45,11 @@ public class CartaoFidelidadeDAO implements GenericDAO<CartaoFidelidade>{
             em.getTransaction().commit();
             return entity;
         } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+               em.getTransaction().rollback(); 
+            }
             System.err.println(e.getMessage());
-            em.getTransaction().rollback();
-            return entity;
+            throw new RuntimeException("Falha ao alterar os dados do cartão");
         } finally {
             em.close();
         }

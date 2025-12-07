@@ -45,9 +45,11 @@ public class SalaDAO implements GenericDAO<Sala>{
             em.getTransaction().commit();
             return entity;
         } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+               em.getTransaction().rollback(); 
+            }
             System.err.println(e.getMessage());
-            em.getTransaction().rollback();
-            return entity;
+            throw new RuntimeException("Falha ao alterar os dados da sala");
         } finally {
             em.close();
         }

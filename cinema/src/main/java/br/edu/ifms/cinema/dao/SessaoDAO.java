@@ -27,9 +27,11 @@ public class SessaoDAO implements GenericDAO<Sessao>{
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+               em.getTransaction().rollback(); 
+            }
             System.err.println(e.getMessage());
-            em.getTransaction().rollback();
-            return false;
+            throw new RuntimeException("Falha ao alterar os dados da sessão");
         } finally {
             em.close();
         }

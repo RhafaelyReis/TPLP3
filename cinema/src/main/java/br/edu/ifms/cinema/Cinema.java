@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 public class Cinema {
 
     public static void main(String[] args) {
+//////////////////////////////////////////////////////////////////////////////// Teste 1
 //        Filme f1 = new Filme();
 //        Filme f2 = new Filme();
 //        Filme f3 = new Filme();
@@ -69,27 +70,76 @@ public class Cinema {
 //        fdao.add(f1);
 //        fdao.add(f2);
 //        fdao.add(f3);
-
+//////////////////////////////////////////////////////////////////////////////// Teste 2
+//        FilmeRequestDTO request = new FilmeRequestDTO();
+//        request.setTitulo("Matrix");
+//        request.setGenero("Sci-fi");
+//        request.setDuracaoMinutos(202);
+//        request.setClassificacao("Livre");
+//
+//        SessaoRequestDTO sessao = new SessaoRequestDTO();
+//        sessao.setFilme(request);
+//        sessao.setHorario(LocalDateTime.of(2025, 11, 18, 15, 30));
+//        request.getSessoes().add(sessao);
+//
+//        SessaoRequestDTO sessao2 = new SessaoRequestDTO();
+//        sessao2.setFilme(request);
+//        sessao2.setHorario(LocalDateTime.of(2025, 11, 18, 18, 00));
+//        request.getSessoes().add(sessao2);
+//
+//        FilmeController controle = new FilmeController();
+//
+//        // mostrar os dados de resposta
+//        FilmeResponseDTO response = controle.add(request);
+//        if (response.isStatus()) {
+//            JOptionPane.showMessageDialog(
+//                    null,
+//                    response.getMessage(),
+//                    "Cadastrado com sucesso",
+//                    JOptionPane.INFORMATION_MESSAGE
+//            );
+//            System.out.println("Filme");
+//            System.out.println("ID: " + response.getId());
+//            System.out.println("TÍTULO: " + response.getTitulo());
+//            System.out.println("GÊNERO: " + response.getGenero());
+//            System.out.println("DURAÇÃO(min): " + response.getDuracaoMinutos());
+//            System.out.println("CLASSIFICAÇÃO: " + response.getClassificacao());
+//            System.out.println("Sessões:");
+//            for (SessaoResponseDTO sessaoResp : response.getSessoes()) {
+//                System.out.println("ID: " + sessaoResp.getId());
+//                System.out.println("HORÁRIO: " + sessaoResp.getHorario());
+//                System.out.println("-----------------------------------");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(
+//                    null,
+//                    response.getMessage(),
+//                    "Falha no cadastro",
+//                    JOptionPane.ERROR_MESSAGE
+//            );
+//        }
+//////////////////////////////////////////////////////////////////////////////// Teste 3
         FilmeRequestDTO request = new FilmeRequestDTO();
-        request.setTitulo("Matrix");
-        request.setGenero("Sci-fi");
+        request.setId(1L);
+        request.setTitulo("Matrix 2");
+        request.setGenero("Ficção");
         request.setDuracaoMinutos(202);
         request.setClassificacao("Livre");
 
-        SessaoRequestDTO sessao = new SessaoRequestDTO();
-        sessao.setFilme(request);
-        sessao.setHorario(LocalDateTime.of(2025, 11, 18, 15, 30));
-        request.getSessoes().add(sessao);
-
-        SessaoRequestDTO sessao2 = new SessaoRequestDTO();
-        sessao2.setFilme(request);
-        sessao2.setHorario(LocalDateTime.of(2025, 11, 18, 18, 00));
-        request.getSessoes().add(sessao2);
+//        SessaoRequestDTO sessao = new SessaoRequestDTO();
+//        sessao.setFilme(request);
+//        sessao.setHorario(LocalDateTime.of(2025, 11, 18, 15, 30));
+//        request.getSessoes().add(sessao);
+//
+//        SessaoRequestDTO sessao2 = new SessaoRequestDTO();
+//        sessao2.setFilme(request);
+//        sessao2.setHorario(LocalDateTime.of(2025, 11, 18, 18, 00));
+//        request.getSessoes().add(sessao2);
 
         FilmeController controle = new FilmeController();
 
         // mostrar os dados de resposta
-        FilmeResponseDTO response = controle.add(request);
+        FilmeResponseDTO response = controle.update(request);
         if (response.isStatus()) {
             JOptionPane.showMessageDialog(
                     null,
