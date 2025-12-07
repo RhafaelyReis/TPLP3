@@ -34,8 +34,8 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Assento> assentos;
 
-//    @OneToMany(mappedBy = "sala")
-//    private List<Sessao> sessoes;
+    @OneToMany(mappedBy = "sala")
+    private List<Sessao> sessoes;
 
     public Long getId() {
         return id;
@@ -61,24 +61,24 @@ public class Sala implements Serializable {
         this.capacidade = capacidade;
     }
 
-//    public List<Assento> getAssentos() {
-//        return assentos;
-//    }
-//
-//    public void setAssentos(List<Assento> assentos) {
-//        this.assentos = assentos;
-//    }
-//
-//    public List<Sessao> getSessoes() {
-//        return sessoes;
-//    }
-//
-//    public void setSessoes(List<Sessao> sessoes) {
-//        this.sessoes = sessoes;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Sala[ id=" + id + ", nome=" + nome + " ]";
-//    }
+    public List<Assento> getAssentos() {
+        return assentos;
+    }
+
+    public void setAssentos(List<Assento> assentos) {
+        this.assentos = assentos;
+    }
+
+    public List<Sessao> getSessoes() {
+        return sessoes;
+    }
+
+    public void setSessoes(List<Sessao> sessoes) {
+        this.sessoes = sessoes;
+    }
+
+    @Override
+    public String toString() {
+        return "Sala[ id=" + id + ", nome=" + nome + " ]";
+    }
 }
