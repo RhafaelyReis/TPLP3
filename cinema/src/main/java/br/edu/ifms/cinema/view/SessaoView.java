@@ -184,7 +184,7 @@ public class SessaoView extends JFrame {
         JPanel panel = criarPainel("VISUALIZAR INFORMAÇÕES");
         panel.setLayout(new BorderLayout());
 
-        JButton btnAtualizar = botao("Ver/Atualizar Relatório", () -> {
+        JButton btnAtualizar = botao("Ver", () -> {
             try {
                 String relatorio = filmeController.listarDadosFormatados();
                 txtAreaLog.setText(relatorio);

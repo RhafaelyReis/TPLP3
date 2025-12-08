@@ -111,7 +111,7 @@ public class FilmeController {
 // FORMATAÇÃO DO RELATÓRIO
     public String listarDadosFormatados() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=== RELATÓRIO DO SISTEMA (DADOS FRESCOS) ===\n\n");
+        sb.append("RELATÓRIO DO SISTEMA\n\n");
         
         for (Filme f : (java.util.List<Filme>) filmeDAO.getAll()) {
             sb.append("FILME: ").append(f.getTitulo()).append(" (").append(f.getGenero()).append(")\n");
