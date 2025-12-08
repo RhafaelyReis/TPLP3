@@ -93,7 +93,8 @@ public class FilmeDAO implements GenericDAO<Filme>{
     public List<Filme> getAll() {
         em = EntityManagerObjectFactory.getEM();
         try {
-            Query query = em.createQuery("SELECT f FROM Filme f");
+            em.clear(); 
+            Query query = em.createQuery("SELECT DISTINCT f FROM Filme f LEFT JOIN FETCH f.sessoes");
             return query.getResultList();
         } catch (Exception e) {
             System.err.println(e.getMessage());

@@ -14,7 +14,7 @@ public class IngressoRequestDTO {
     private Double valor;
     private Long sessaoId;
     private Long clienteId;
-    private Long assentoId;
+//    private Long assentoId;
 
     public Long getId() {
         return id;
@@ -56,11 +56,11 @@ public class IngressoRequestDTO {
         this.clienteId = clienteId;
     }
 
-    public Long getAssentoId() {
-        return assentoId;
-    }
-
-    public void setAssentoId(Long assentoId) {
-        this.assentoId = assentoId;
-    }
+//    public Long getAssentoId() {
+//        return assentoId;
+//    }
+//
+//    public void setAssentoId(Long assentoId) {
+//        this.assentoId = assentoId;
+//    }
 }
